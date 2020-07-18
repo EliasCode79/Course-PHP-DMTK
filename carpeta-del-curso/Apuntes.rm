@@ -1,0 +1,105 @@
+
+#------         UNIDAD # 2
+
+---     Que es y como funciona PHP
+
+Request == peticion
+Response == respuesta
+
+HTTP (intercambio de peticiones y respuesta)
+Codigos
+200 : OK (todo bien)
+404 : not found (no se encuentra la pagina)
+403 : Forbidden (prohibido)
+500 : Internal server error 
+
+Protocolo HTTP: Request 
+POST, GET, DELETE, HEAD, PUT.. ETC.
+
+GET : solicita una representación del recurso especificado. Las solicitudes que usan GET solo deben recuperar datos y no deben tener ningún otro efecto
+
+POST : Envía datos para que sean procesados por el recurso identificado en la URI de la línea petición.
+
+
+
+---     Sintaxis en PHP
+
+<?php  --- indicamos el inicio de php
+    $variable = 'hola';
+    $nombre = 'Ignacion';
+    echo $variable. ' ' .$nombre;
+
+    // esto es un comentario
+
+?>      --- indicamos el fin de php
+
+==> lo anterior da como resultado: Hola Ignacion 
+
+NO es necesario pone "?>" para indicar el final en archivos PHP
+
+
+
+#------         UNIDAD #3
+
+---     variables Constantes y Funciones
+
+Toda variable en PHP se puede sobreescribir, comienza con el signo de pesos '$'. Ejmplos : 
+        
+        $nombre_variable = valor_de_variable, $_esta_igual_sirve;
+
+Las Constantes no se pueden sobreescribir con las variables, se la declaran de la siguiente manera: 
+        
+        define( 'nombre_constante', 'valor_de_constante'), define( 'MARCA', 'Ford' );
+ las constantes se ponen en mayuscula (esta es un convencion).
+
+Las funciones se pueden declarar de las siguientes maneras 
+
+        function nombre_de_la_funcion ($param1, $param2){
+            // resto de la funcion 
+        }
+
+        function q_dia_es_hoy(){            ==> Esta funcion no tiene parametros y nos muestra "Hoy es Viernes"
+            echo 'Hoy es ' . date(l);       ==> date(l) es un funcion q nos devuelve el dia actual de la semana
+        }
+
+        function suma3($num1, $num2, $num3){    ==> Esta tiene parametros y no muestra la suma de 3 numeros ingresados
+            echo $num1 + $num2 + $num3;
+        }
+
+        
+        function suma3($num1, $num2, $num3){    ==> Esta a diferencia de la anterio nos devuelve (no nos muestra la suma)
+            return $num1 + $num2 + $num3;
+        }
+
+    FUNCION CON PARAMETROS OPCIONES
+
+        function incremento ($numero, $inc = 1){ 
+            return $numero + $inc;
+        }
+
+        La funcion "incremento" recibe 2 valores y estos los suma, en caso de que el 2da parametro no se le pase(funcion opcional), este toma por defecto el valor de '1' que es el valor por defecto que nosotros le ponemos y realiza la suma con ese valor.
+
+    SCOPE de Variables  == Ambitos de variable
+
+        $otro_saludo = 'Hola q tal';
+        function otra_prueba(){
+            global $otro_saludo;        ==> estamos exportando la variable GLOBAL 'otro_saludo'
+            echo $otro_saludo;
+        }
+
+        Las variables q se declaran dentro las funciones solo exiten dentro de ellas, no podemos utilizaras fueran de respectivas funciones.
+        la variable 'otro_saludo' es un variable GLOBAL si queremos utilizar esta variable en una de nuestro funciones debemos llamarlas como:
+                            gloal $otro_saludo;
+
+
+            
+---     Depurado de errores
+
+Vamos a ver los 4 errores principales de PHP
+
+    1.- Error Fatal
+        Si llamamos a una funcion que no creamos este llegaria ser un 'error falta'
+    2.- Warning
+
+    3.- Notice 
+    4.- Syntax error
